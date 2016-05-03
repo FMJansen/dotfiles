@@ -1,0 +1,17 @@
+[user]
+	name = Floris Jansen
+	email = florismartijnjansen@gmail.com
+[push]
+	default = simple
+[branch]
+	autosetuprebase = always
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold # line info
+	old = red # deletions
+	new = green # additions
