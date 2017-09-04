@@ -35,6 +35,9 @@ open "https://www.google.com/intl/en/chrome/browser/desktop/index.html"
 # Open Atom download page
 open "https://atom.io/download/mac"
 
+# Open Homestead installation docs
+open "https://laravel.com/docs/5.1/homestead#installation-and-setup"
+
 
 # Upgrade any already-installed formulae.
 brew upgrade --all
