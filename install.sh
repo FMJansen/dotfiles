@@ -32,7 +32,7 @@ open "https://www.dropbox.com/downloading?os=mac"
 # Open Chrome download page
 open "https://www.google.com/intl/en/chrome/browser/desktop/index.html"
 
-# Open Chrome download page
+# Open Atom download page
 open "https://atom.io/download/mac"
 
 
