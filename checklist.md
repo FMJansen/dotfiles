@@ -6,4 +6,9 @@
 - [ ] Manually copy dotfiles to right locations
 - [ ] [Turn on firmware password](https://support.apple.com/en-au/HT204455#turnon)
 - [ ] Run install.sh
+- [ ] Add ssh pub key to servers
 - [ ] [Download Office](https://portal.office.com)
+- [ ] Add Cyberduck bookmarks
+- [ ] Check macOS defaults
+- [ ] Install Adobe Apps
+- [ ] Restore files
