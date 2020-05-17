@@ -93,3 +93,17 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
+
+###############################################################################
+# GitHub                                                                      #
+###############################################################################
+
+## Github
+ssh-keygen -t rsa -C "floris@`hostname -s`"
+
+# Copy public key to Github.com
+# Also copy key to servers
+cat ~/.ssh/id_rsa.pub
+
+# Test connection
+ssh -T git@github.com
