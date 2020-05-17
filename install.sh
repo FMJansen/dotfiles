@@ -29,6 +29,8 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+# Show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
@@ -107,3 +109,22 @@ cat ~/.ssh/id_rsa.pub
 
 # Test connection
 ssh -T git@github.com
+
+###############################################################################
+# Security                                                                    #
+###############################################################################
+
+# Remove and stop input storage
+rm -rfv "~/Library/LanguageModeling/*" "~/Library/Spelling/*" "~/Library/Suggestions/*"
+chmod -R 000 ~/Library/LanguageModeling ~/Library/Spelling ~/Library/Suggestions
+chflags -R uchg ~/Library/LanguageModeling ~/Library/Spelling ~/Library/Suggestions
+
+# Remove and stop siri analystics
+rm -rfv ~/Library/Assistant/SiriAnalytics.db
+chmod -R 000 ~/Library/Assistant/SiriAnalytics.db
+chflags -R uchg ~/Library/Assistant/SiriAnalytics.db
+
+# Turn of captive window for new wifi networks
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control.plist Active -bool false
+# Disable Bonjour multicast advertisements
+sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMulticastAdvertisements -bool YES
