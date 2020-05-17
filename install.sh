@@ -5,8 +5,8 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 # Make sure we’re using the latest Homebrew.
 brew update
 # Upgrade any already-installed formulae.
-brew upgrade --all
-brew bundle install --file maxos-apps.brewfile
+brew upgrade
+brew bundle install
 
 apm install `cat apm-packages.list`
 
@@ -25,8 +25,6 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-# Reveal IP address, hostname, OS version, etc. when clicking the clock
-defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 # Show all filename extensions
@@ -114,17 +112,7 @@ ssh -T git@github.com
 # Security                                                                    #
 ###############################################################################
 
-# Remove and stop input storage
-rm -rfv "~/Library/LanguageModeling/*" "~/Library/Spelling/*" "~/Library/Suggestions/*"
-chmod -R 000 ~/Library/LanguageModeling ~/Library/Spelling ~/Library/Suggestions
-chflags -R uchg ~/Library/LanguageModeling ~/Library/Spelling ~/Library/Suggestions
-
-# Remove and stop siri analystics
-rm -rfv ~/Library/Assistant/SiriAnalytics.db
-chmod -R 000 ~/Library/Assistant/SiriAnalytics.db
-chflags -R uchg ~/Library/Assistant/SiriAnalytics.db
-
-# Turn of captive window for new wifi networks
+# Turn off captive window for new wifi networks
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control.plist Active -bool false
 # Disable Bonjour multicast advertisements
 sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMulticastAdvertisements -bool YES
