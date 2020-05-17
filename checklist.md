@@ -1,0 +1,9 @@
+- [ ] Create user
+- [ ] [Enable secure keyboard entry for Terminal](https://security.stackexchange.com/questions/47749/how-secure-is-secure-keyboard-entry-in-mac-os-xs-terminal)
+- [ ] Hide admin folder `sudo mv /Users/hiddenuser /var/hiddenuser`
+- [ ] `sudo dscl . create /Users/hiddenuser NFSHomeDirectory /var/hiddenuser`
+- [ ] `sudo dscl . delete "/SharePoints/Hidden User's Public Folder"` [src](https://support.apple.com/en-gb/HT203998)
+- [ ] Manually copy dotfiles to right locations
+- [ ] [Turn on firmware password](https://support.apple.com/en-au/HT204455#turnon)
+- [ ] Run install.sh
+- [ ] [Download Office](https://portal.office.com)

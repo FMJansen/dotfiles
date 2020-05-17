@@ -1,46 +1,18 @@
 #!/bin/bash
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-# Define copy function to add files to home dir
-function copy {
-    read -p "Do you want to copy ${DIR}/files/$1 to ~/.$1? [y/N] "
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        cp ${DIR}/files/$1 ~/.$1
-        sed -i "s/{{dotfiles}}/$(echo $DIR | sed -e 's/[\/&]/\\&/g')/g" ~/.$1
-    fi
-}
-
-# Add dotfiles to home dir
-for file in ${DIR}/templates/*; do
-    copy $(basename $file)
-done
-
-# Ask for the administrator password upfront.
-sudo -v
-
-# Keep-alive: update existing `sudo` time stamp until the script has finished.
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Make sure we’re using the latest Homebrew.
 brew update
 
-# Open Dropbox download url
-open "https://www.dropbox.com/downloading?os=mac"
 
-# Open Chrome download page
-open "https://www.google.com/intl/en/chrome/browser/desktop/index.html"
-
-# Open Atom download page
-open "https://atom.io/download/mac"
-
-# Open Homestead installation docs
-open "https://laravel.com/docs/5.1/homestead#installation-and-setup"
-
+# Ask for the administrator password upfront.
+sudo -v
 
 # Upgrade any already-installed formulae.
 brew upgrade --all
+# Keep-alive: update existing `sudo` time stamp until the script has finished.
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
