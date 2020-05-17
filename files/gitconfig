@@ -15,3 +15,5 @@
 	frag = magenta bold # line info
 	old = red # deletions
 	new = green # additions
+[color]
+	ui = true
