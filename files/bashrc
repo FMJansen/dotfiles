@@ -6,15 +6,7 @@ alias work='cd ~/Werk/'
 alias stgit='git status'
 alias sygit='git pull && git push'
 alias cmgit='git commit -m'
-alias fucking='sudo'
-alias wp='cd ~/Werk/wp/wp-content/themes/'
 alias server='python -m SimpleHTTPServer'
-
-
-# From @mathiasbynens dotfiles
-# Shortcuts
-alias drop='cd ~/Dropbox'
-alias dl='cd ~/Downloads'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -26,15 +18,8 @@ fi
 # Always list all files colorized and trailing slash of directories and such
 alias ls='ls -F ${colorflag}'
 
-# Stopwatch
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
-
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
-# Empty the Trash on all mounted volumes and the main HDD
-# Also, clear Apple’s System Logs to improve shell startup speed
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -44,21 +29,9 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # (useful when executing time-consuming commands)
 alias badge="tput bel"
 
-# Lock the screen (when going AFK)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
 # Change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
-}
-
-# Start a PHP server from a directory, optionally specifying the port
-# (Requires PHP 5.4.0+.)
-function phpserver() {
-	local port="${1:-4000}";
-	local ip=$(ipconfig getifaddr en1);
-	sleep 1 && open "http://${ip}:${port}/" &
-	php -S "${ip}:${port}";
 }
 
 # Thanks @mathiasbynens
