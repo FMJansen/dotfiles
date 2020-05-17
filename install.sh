@@ -1,26 +1,24 @@
 #!/bin/bash
 
+# Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
 # Make sure we’re using the latest Homebrew.
 brew update
+# Upgrade any already-installed formulae.
+brew upgrade --all
+brew bundle install --file maxos-apps.brewfile
 
+apm install `cat apm-packages.list`
 
 # Ask for the administrator password upfront.
 sudo -v
 
-# Upgrade any already-installed formulae.
-brew upgrade --all
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-brew install coreutils
 sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
-
-brew install git
-brew install git-flow
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
