@@ -12,3 +12,4 @@
 - [ ] Check macOS defaults
 - [ ] Install Adobe Apps
 - [ ] Restore files
+- [ ] Install wacom driver and [fix](https://github.com/thenickdude/wacom-driver-fix/blob/master/Readme-manual-installation.md)
