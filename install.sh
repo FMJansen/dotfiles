@@ -9,6 +9,8 @@ brew upgrade
 brew bundle install
 
 apm install `cat apm-packages.list`
+gem install scss_lint
+npm install -g gulp
 
 # Ask for the administrator password upfront.
 sudo -v
