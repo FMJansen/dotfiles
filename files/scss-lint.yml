@@ -3,4 +3,5 @@ linters:
     enabled: false
   PlaceholderInExtend:
     enabled: false
-
+  ColorVariable:
+    enabled: false
