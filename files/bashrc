@@ -8,6 +8,9 @@ alias sygit='git pull && git push'
 alias cmgit='git commit -m'
 alias server='python -m SimpleHTTPServer'
 
+# Turn off zsh warning on macOS
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -37,3 +40,12 @@ function cdf() { # short for `cdfinder`
 # Thanks @mathiasbynens
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+# If rbenv used for ruby versions
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
+
+# If nvm used for node versions
+#export NVM_DIR="$HOME/.nvm"
+#    [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+#    [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
