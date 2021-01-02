@@ -3,6 +3,7 @@
 - [ ] Hide admin folder `sudo mv /Users/hiddenuser /var/hiddenuser`
 - [ ] `sudo dscl . create /Users/hiddenuser NFSHomeDirectory /var/hiddenuser`
 - [ ] `sudo dscl . delete "/SharePoints/Hidden User's Public Folder"` [src](https://support.apple.com/en-gb/HT203998)
+- [ ] `sudo mdutil -a -i off` [src](https://osxdaily.com/2009/09/20/disable-spotlight-in-mac-os-x-10-6-snow-leopard/)
 - [ ] Manually copy dotfiles to right locations
 - [ ] [Turn on firmware password](https://support.apple.com/en-au/HT204455#turnon)
 - [ ] Run install.sh
