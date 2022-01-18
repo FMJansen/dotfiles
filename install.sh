@@ -8,8 +8,6 @@ brew update
 brew upgrade
 brew bundle install
 
-apm install `cat apm-packages.list`
-gem install scss_lint
 npm install -g gulp
 
 # Ask for the administrator password upfront.
@@ -48,9 +46,6 @@ sudo rm /private/var/vm/sleepimage
 sudo touch /private/var/vm/sleepimage
 # …and make sure it can’t be rewritten
 sudo chflags uchg /private/var/vm/sleepimage
-
-# Disable the sudden motion sensor as it’s not useful for SSDs
-sudo pmset -a sms 0
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
