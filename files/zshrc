@@ -1,0 +1,35 @@
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
+zstyle ':completion:*' max-errors 3
+zstyle :compinstall filename '/Users/florisjansen/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=5000
+SAVEHIST=5000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+
+# Find and set branch name var if in git repository.
+function git_branch_name()
+{
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+    echo '('$branch') '
+  fi
+}
+
+# Enable substitution in the prompt.
+setopt prompt_subst
+
+PROMPT="%F{225}%*%f %F{177}%~%f %F{85}$(git_branch_name)%f%B%F{33}$%f%b "
