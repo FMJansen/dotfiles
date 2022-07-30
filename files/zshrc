@@ -32,4 +32,4 @@ function git_branch_name()
 # Enable substitution in the prompt.
 setopt prompt_subst
 
-PROMPT="%F{225}%*%f %F{177}%~%f %F{85}$(git_branch_name)%f%B%F{33}$%f%b "
+PROMPT='%F{225}%*%f %F{177}%~%f %F{85}$(git_branch_name)%f%B%F{33}$%f%b '
